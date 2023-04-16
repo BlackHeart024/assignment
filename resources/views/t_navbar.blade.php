@@ -100,17 +100,16 @@
     <ul class="nav nav-pills flex-column mb-auto mt-4">
       <li class="nav-item text-left">
       <li>
-        <a href="{{url('dashboard')}}" class="nav-link"><i class="fas fa-store"></i> Home </a>
+        <a href="{{url('teacher_dashboard')}}" class="nav-link"><i class="fas fa-store"></i> Home </a>
       </li>
       <li>
-        <a href="" class="nav-link " data-toggle="modal" 
-        -target="#myModal"><i class="fas fa-user-circle"></i> Profile</a>
+        <a type="button" href="" class="nav-link " data-toggle="modal" data-target="#myModal"><i class="fas fa-user-circle"></i> Profile</a>
       </li>
-      <li>
+      <!-- <li>
         <a href="load_cat" class="nav-link "><i class="fas fa-user-friends"></i> Group/Classroom</a>
-      </li>
+      </li> -->
       <li>
-        <a href="" class="nav-link"><i class="far fa-newspaper"></i> Assignments</a>
+        <a href="{{url('view_assignments')}}" class="nav-link"><i class="far fa-newspaper"></i> Assignments</a>
       </li>
       <!-- <li>
         <a href="" class="nav-link">
@@ -129,7 +128,7 @@
   </div>
 
   <!-- --------------------modal-------------------- -->
-  <div class="modal fade" id="myModal" role="dialog">
+  <div class="modal fade in bd-example-modal-lg" id="myModal" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
   <div class="container-fluid">
     <div class="modal-dialog">
 
@@ -137,23 +136,23 @@
       <div class="modal-content">
         
         <div class="modal-header">
-          <h4 class="modal-title"> <i class="fas fa-user-graduate"></i> Student Details</h4>
+          <h4 class="modal-title"> <i class="fas fa-user-graduate"></i> Teacher's Details</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
         </div>
         <div class="modal-body">
           <div class="col">
             <div class="row">
               <label for="signup-name" class="col">Full Name</label>
-              <input id="signup-name" class="col form-control-plaintext" type="text" name="name" value="{{$data->name}}" />
+              <input id="signup-name" class="col form-control-plaintext" type="text" name="name" value="{{$data->t_name}}" />
             </div>
 
             <div class="row mt-2">
               <label for="signup-email" class="col">Email Address</label>
-              <input id="signup-email" class="col form-control-plaintext" type="email" name="email" autocomplete="off" value="{{$data->email}}"></input>
+              <input id="signup-email" class="col form-control-plaintext" type="email" name="email" autocomplete="off" value="{{$data->t_email}}"></input>
             </div>
             <div class="row mt-2">
               <label for="address" class="col">Address</label>
-              <input id="address" class="col form-control-plaintext" type="text" name="address" value="{{$data->Address}}" readonly></input>
+              <input id="address" class="col form-control-plaintext" type="text" name="address" value="{{$data->t_address}}" readonly></input>
             </div>
 
             
@@ -173,13 +172,13 @@
               <div class="col-sm-6">
 
                  <label for="male">male</label>
-                <input type="radio" id="male" name="gender" value="M" {{$data->gender =="M" ? "checked":""}} />
+                <input type="radio" id="male" name="gender" value="M" {{$data->t_gender =="M" ? "checked":""}} />
 
                  <label for="female">female</label>
-                <input type="radio" id="female" name="gender" value="F" {{$data->gender =="F" ? "checked":""}} />
+                <input type="radio" id="female" name="gender" value="F" {{$data->t_gender =="F" ? "checked":""}} />
 
                  <label for="others">other</label>
-                <input type="radio" id="others" name="gender" value="O" {{$data->gender =="O" ? "checked":""}} />
+                <input type="radio" id="others" name="gender" value="O" {{$data->t_gender =="O" ? "checked":""}} />
               </div>
             </div>
           </div>

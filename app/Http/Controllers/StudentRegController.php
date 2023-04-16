@@ -85,7 +85,7 @@ class StudentRegController extends Controller
         }
     }
 
-
+    
     public function logout()
     {
         if (Session::has('loginId')) {

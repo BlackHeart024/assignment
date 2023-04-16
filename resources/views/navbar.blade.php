@@ -109,7 +109,7 @@
         <!-- <a href="" class="nav-link"><i class="fas fa-file-import"></i> Missed Assignments</a> -->
       </li>
       <li>
-        <a href="{{url('submitted-assignments')}}" class="nav-link"><i class="fas fa-medal"></i> Submitted Assignments</a>
+        <a href="{{url('submittedAssignments')}}" class="nav-link"><i class="fas fa-medal"></i> Submitted Assignments</a>
       </li>
       <!-- <li>
         <a href="" class="nav-link">
@@ -191,7 +191,7 @@
         </div>
         <div class="row  mt-2 mb-2">
           <a href="{{route('updatedetails',['id'=>$data->id])}}" class="col-sm-3 ml-3"><button class="btn btn-secondary"><i class="fas fa-user-tie"></i> Update</button></a>
-          <a href="{{route('changePass',['id'=>$data->id])}}" class="col-sm-3 ml-3"><button class="btn btn-secondary"><i class="fas fa-user-cog"></i> Settings</button></a>
+          <a href="{{route('changePass',['id'=>$data->id])}}" class="col-sm-3 ml-3"><button class="btn btn-secondary"><i class="fas fa-user-cog"></i> Change Password</button></a>
           <button class="btn btn-secondary col-sm-3 ml-5" data-dismiss="modal"><i class="far fa-window-close"></i> Close</button>
         </div>
       </div>

@@ -44,7 +44,7 @@
 						<div class="card rounded shadow bg-info">
 							<div class="card-header row">
 								<div class="col-sm-10"><i class="far fa-newspaper"></i> {{$data2[$n]->assignment_name}}</div>
-								<div class="ml-auto col-sm"><a href="{{route('viewQuestion',['id'=>$data2[$n]->id])}}" class=""><button type="button" class="btn btn-outline-light shadow text-dark col-sm">View Datails <i class='fas fa-book-reader'></i></button></a></div>
+								<div class="ml-auto col-sm"><a href="{{route('viewQuestion',['id'=>$data2[$n]->id])}}" class=""><button type="button" class="btn btn-outline-light shadow text-dark col-sm">View Details <i class='fas fa-book-reader'></i></button></a></div>
 							</div>
 							<div class="card-body">Assignment Due On: {{$data2[$n]->submission_d_t}}</div>
 						</div>

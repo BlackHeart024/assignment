@@ -1,3 +1,4 @@
+@extends('t_navbar')
 
 <!DOCTYPE html>
 <html lang="en">

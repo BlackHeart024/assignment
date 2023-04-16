@@ -60,7 +60,7 @@ class TeacherRegController extends Controller
         ])->first();
         if ($usr) {
             if (Hash::check($request->Password, $usr->t_password)) {
-                $request->session()->put('loginId', $usr->id);
+                $request->session()->put('loginId', $usr->t_id);
                 return redirect('teacher_dashboard');
             } else {
                 return redirect('/teacher')->with('pass', "You Have Entered Wrong Password");
@@ -75,10 +75,12 @@ class TeacherRegController extends Controller
             // $data = array();
             $todayDate = Carbon::now();
             if (Session::has('loginId')) {
-                $sid =  Session::get('loginId');
-                $data = TeacherRegModel::where('t_id', "=", Session::get('loginId'))->first();
-                // $data1 = department::where('d_id', "=", $data->d_id)->first();
-                return view('teacher_dashboard', compact('data', 'sid', 'todayDate'));
+                $data = [];
+                $data['sid']  =  Session::get('loginId');
+                $data['data'] = TeacherRegModel::where('t_id', "=", Session::get('loginId'))->first();
+                $d_id = $data['data']->t_d_id ?? null;
+                $data['data1'] = DB::table('department')->where('d_id',$d_id)->first();
+                return view('teacher_dashboard', $data);
             }
         }
      

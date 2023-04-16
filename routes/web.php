@@ -33,8 +33,9 @@ Route::post('makeChange/{id}',[ProfileControlController::class, 'makeChange'])->
 Route::get('changePass/{id}',[ProfileControlController::class, 'changePass'])->name('changePass');
 Route::post('changePassAction/{id}',[ProfileControlController::class, 'changePassAction'])->name('changePassAction');
 Route::get('viewQuestion/{id}',[viewQuestionController::class, 'viewQuestion'])->name('viewQuestion');
+// Route::get('viewQuestion/{id}',[viewQuestionController::class, 'delete'])->name('delete');
 Route::post('submitAns/{stu_id}/{ass_id}',[viewQuestionController::class, 'submitAns'])->name('submitAns');
-
+Route::get('submittedAssignments', [StudentRegController::class, 'dashboard']);
 
 
 //routes for teacher module functions
@@ -42,11 +43,18 @@ Route::get('teacher',[TeacherRegController::class,'index']);
 Route::get('teacher-account-creation', [TeacherRegController::class, 'register'])->name('t_Register');
 Route::post('teacherreg',[TeacherRegController::class,'teacherreg']);
 Route::post('teacher_login',[TeacherRegController::class,'login']);
-// Route::get('teacher_dashboard',[TeacherRegController::class,'dashboard']);
-Route::get('teacher_dashboard',function(){
-    return view('teacher_dashboard');
-});
+Route::get('teacher_dashboard',[TeacherRegController::class,'dashboard']);
+// Route::get('teacher_dashboard',function(){
+//     return view('teacher_dashboard');
+// });
 Route::get('teacher_logout',[TeacherRegController::class,'logout']);
 Route::get('create_assignment',[AssignmentController::class,'index']);
 Route::post('create_assignment',[AssignmentController::class,'store'])->name('create_assignment');
 Route::get('teacher_view_assignment',[AssignmentController::class,'view']);
+Route::get('view_assignments',[AssignmentController::class,'view'])->name('assignment.view');
+Route::get('edit-assignment/{id}',[AssignmentController::class,'editAssignment'])->name('assignment.edit');
+Route::get('submitted-assignment/{id}',[AssignmentController::class,'submittedAssignment'])->name('assignment.submitted');
+Route::get('delete-assignment/{id}',[AssignmentController::class, 'deleteAssignment'])->name('assignment.delete');
+// Route::get('submittedAssignments', function () {
+//     return view('submittedAssignments');
+// });

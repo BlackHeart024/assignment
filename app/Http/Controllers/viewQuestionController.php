@@ -19,22 +19,34 @@ class viewQuestionController extends Controller
         }
     }
 
-
-
+    // public function delete($id)
+    // {
+    //     echo $id;
+    //     die;
+    // }
     public function submitAns(Request $request, $stu_id, $ass_id)
     {
-       $new = count($request->question_no);
-       while($new>=2){
-        $ans = $request->answer[$new-2];
-        if(!empty($ans)){
-                $answer = new subAns();
-                $answer->student_id = $stu_id;
-                $answer->question_id = $request->q_id[$new-2];
-                $answer->assignment_id = $ass_id;
-                $answer->answers = $ans;
-                $answer->save();}
-                $new--;
+       $questions = $request->get('q_id');
+       $answerInput = $request->get('answer');
+       foreach($questions as $key => $quesId){
+            $answer = new subAns();
+            $answer->student_id = $stu_id;
+            $answer->question_id = $quesId;
+            $answer->assignment_id = $ass_id;
+            $answer->answers = isset($answerInput[$key])? $answerInput[$key] : '';
+            $answer->save();
        }
+    //    while($new>=2){
+    //     $ans = $request->answer[$new-2];
+    //     if(!empty($ans)){
+    //         $answer = new subAns();
+    //         $answer->student_id = $stu_id;
+    //         $answer->question_id = $request->q_id[$new-2];
+    //         $answer->assignment_id = $ass_id;
+    //         $answer->answers = $ans;
+    //         $answer->save();}
+    //         $new--;
+    //     }
 
 
        $name1 = $request->file('pdffile');
@@ -57,5 +69,5 @@ class viewQuestionController extends Controller
        
       
        return redirect('dashboard')->with('assign', "Your Assignment Submitted Successfully");
-}
+    }
 }

@@ -15,7 +15,7 @@
 </head>
 <body>
     <div class="container">
-        <form action="{{ url('create_assignment') }}" method="POST">
+        <form action="{{ url('create_assignment') }}" style="margin-top: 80px;" method="POST">
             @csrf
             @if ($errors->any())
             <div class="alert alert-danger" role="alert">
@@ -32,15 +32,15 @@
             </div>
             @endif
 
-            <div class="form-group">
+            <!-- <div class="form-group">
             Assignment Id<input type="text" name="id" id="">
-        </div>
-            <div class="form-group">
+        </div> -->
+            <!-- <div class="form-group">
             t_id<input type="text" name="t_id" id="">
         </div>
             <div class="form-group">
             d_id<input type="text" name="d_id" id="">
-        </div>
+        </div> -->
             <div class="form-group">
               Assignment Name <input type="text" name="assignment_name" id="" class="form-control" >
             </div>
@@ -229,7 +229,7 @@
 
       
    
-       <form action="{{ route('create_assignment') }}" method="POST">
+       <form action="{{ route('create_assignment') }}" style="margin-top: 80px;" method="POST">
    
            @csrf
    
@@ -253,7 +253,7 @@
    
            @endif
    
-           <div class="form-group">
+           <!-- <div class="form-group">
             Assignment Id<input type="text" name="id" id="">
         </div>
             <div class="form-group">
@@ -261,7 +261,7 @@
         </div>
             <div class="form-group">
             d_id<input type="text" name="d_id" id="">
-        </div>
+        </div> -->
             <div class="form-group">
               Assignment Name <input type="text" name="assignment_name" id="" class="form-control" >
             </div>
